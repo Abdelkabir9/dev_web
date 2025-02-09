@@ -1,0 +1,444 @@
+:root {
+    --color-primary: rgb(191, 0, 255);
+    --white:white;
+    --black:rgb(41, 40, 40);
+    --theme:rgb(204, 133, 76);;
+    --x:80px;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--black);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+    scroll-behavior: smooth;
+}
+#navbar{
+    display: flex;
+    background-color: var(--black);
+    flex-direction: row;
+    height:var(--x);
+    color: var(--white);
+    align-items: center;
+    box-shadow: 0px 0px 10px var(--theme);
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    transition: all 1s;
+    z-index: 5;
+}
+#nav{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: start;
+    flex: 5;
+    width: 300px;
+    letter-spacing: 1px;
+    margin-right: 70px;
+}
+@media screen and (max-width:500px) {
+    #nav{
+        width: 110%;
+        margin-left: -10%;
+    }
+}
+#nav li a{
+    text-decoration: none;
+    color: var(--white);
+}
+#nav div{
+    padding-bottom: 5px;
+    border-bottom: 3px solid transparent;
+}
+#nav div:hover{
+    border-bottom: 3px solid var(--theme);
+    animation: line 1s forwards;
+}
+@keyframes line {
+    0%{
+        width: 0%;
+    }100%{
+         width: 100%;
+     }
+}
+#light {
+    position:fixed;
+    z-index: 100;
+    top: 10px;
+    right: 10px;
+    background-color: var(--theme);
+    border: 2px solid var(--black);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 1s;
+}
+#couleur{
+    list-style: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 250px;
+    padding: 0;
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+#couleur li{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#logo{
+    font-size: xx-large;
+    flex: 5;
+    text-align: justify;
+    padding-left: 20px;
+}
+#nomm{
+    color: var(--theme);
+}
+#show_hide{
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    bottom: -15px;
+    left:50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--theme);
+    z-index: 100000;
+}
+#container{
+    background-color: var(--theme);
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin-top: 180px;
+    left: 50%;
+    transform: translate(-50%);
+    font-family:'Gill Sans MT';
+    z-index: -1;
+}
+form {
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 94px;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(103, 101, 101);
+    height: calc(100% - 94px);
+    z-index: 1;
+    font-size: 1em;
+    padding: 40px;
+    transition: all 1.7s;
+}
+form > div{
+    width: 80%;
+}
+input{
+    height: 40px;
+    width: 100%;
+    font-size: 1em;
+    border-radius: 40px;
+    border: 3px solid transparent;
+    background-color: rgb(132, 141, 132);
+    opacity: 0.5;
+    margin-left: 10px;
+}
+label{
+    position: relative;
+    color: white;
+    top: -35px;
+    left: 20px;
+    transition: 1s;
+}
+input:focus +label,input:not(:placeholder-shown)+label{
+    top: -70px;
+    color: black;
+}
+#submit{
+    width: 100px;
+    height: 45px;
+    background-color: rgb(117, 116, 116,);
+    opacity: 1;
+    font-size: 1em;
+    border-radius: 40px;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+#head{
+    border-radius: 50% 50% 40px 40px;
+    height: 90px;
+    width: 100px;
+    border: 2px solid black;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+}
+#eyel{
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    position: absolute;
+    left: 10px;
+    top: 25px;
+    z-index: 5;
+}
+#eyer{
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    position: absolute;
+    left: 60px;
+    top: 25px;
+    z-index: 5;
+}
+h3{
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    position: relative;
+    top: -15px;
+    left: 2px;
+}
+#lipsl,#lipsr{
+    height: 8px;
+    width: 15px;
+    background-color: palevioletred;
+    border-radius: 50%;
+    position: absolute;
+    top: 48px;
+    left: 10px;
+    transform: rotate(20deg);
+}
+#lipsl{
+    left: 71px;
+    top: 48px;
+    transform: rotate(-20deg);
+}
+#mouthl,#mouthr{
+    border-bottom: 2px solid black;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+}
+#mouthl{
+    top:60px;
+    left: 40px;
+}
+#mouthr{
+    top: 60px;
+    left: 50px;
+}
+#nose{
+    height: 10px;
+    width: 10px;
+    border-radius: 100% 0px 0px 0px;
+    background-color: black;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 55px;
+    left: 45px;
+}
+#earl,#earr{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    background-color: black;
+    border-radius: 50% 50% 0px 0px;
+    z-index: -1;
+    animation: tit 10s infinite;
+}
+@keyframes tit {
+    0%{
+        height: 45px;
+    }
+    8%{
+        height: 30px;
+    }
+    16%{
+        height: 45px;
+    }
+    24%{
+        height: 30px;
+    }
+    32%{
+        height: 45px;
+    }
+    40%{
+        height: 30px;
+    }
+    100%{
+        height: 30px;
+    }
+
+}
+#earr{
+    transform: rotate(-45deg);
+    left: -10px;
+}
+#earl{
+    transform: rotate(45deg);
+    left: 80px;
+}
+#arml,#armr{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    background-color: black;
+    border-radius: 5px 5px 50% 50%;
+    top: 85px;
+    z-index: 1001;
+    transition: 1.5s;
+}
+#arml{
+    left: 20%;
+}
+#armr{
+    right: 20%;
+}
+#legl,#legr{
+    height: 40px;
+    width: 50px;
+    position: absolute;
+    background-color: black;
+    bottom: -5px;
+    border-radius: 50% 50% 5px 5px;
+    z-index: 1001;
+}
+#legl{
+    left: 20%;
+}
+#legr{
+    right: 20%;
+}
+.plat{
+    position: absolute;
+    bottom: 5px;
+    left: 20%;
+    height: 50%;
+    width: 60%;
+    border-radius: 50% 50% 2px 2px;
+    background-color: white;
+}
+.A,.B,.C{
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+}
+.A{
+    left: -15%;
+    top: -6px;
+}
+.B{
+    left: 35%;
+    top: -12px;
+}
+.C{
+    left: 85%;
+    top: -6px;
+}
+#hearth{
+    position:absolute;
+    height: 20px;
+    width: 20px;
+    margin-left: 6px;
+    display: none;
+    z-index: 20;
+}
+@keyframes biso {
+    0%{
+        top: -35px;
+    }
+    100%{
+        top: 0px;
+    }
+}
+#heartl,#heartr{
+    position:absolute;
+    background-color: red;
+    height: 100%;
+    width: 66%;
+    top: 100px;
+    z-index: 2;
+}
+#heartl{
+    transform: rotate(-45deg) translateX(-25%);
+    border-radius: 50% 50% 50% 0px;
+}
+#heartr{
+    transform: rotate(45deg) translateX(25%);
+    border-radius: 50% 50% 0% 50%;
+}
+@keyframes salut {
+    0%{
+        z-index: -1;
+    }
+    10%{
+        transform: rotateX(180deg);
+        height: 60px;
+    }
+    20%{
+        transform: rotateX(180deg) rotateZ(-20deg) translateY(30px);
+    }
+    40%{
+        transform: rotateX(180deg) rotateZ(20deg) translateY(30px);
+    }
+    60%{
+        transform: rotateX(180deg) rotateZ(-20deg) translateY(30px);
+    }
+    80%{
+        transform: rotateX(180deg) rotateZ(20deg) translateY(30px);
+        height: 60px;
+        z-index: -1;
+    }
+    100%{
+        transform: initial;
+        z-index: 5;
+    }
+}
+#result{
+    animation: shadow 2s linear infinite;
+}
+@keyframes shadow {
+    to{
+        text-shadow: 0 0 10px;
+    }
+}

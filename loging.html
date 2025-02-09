@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="home.css">
+  <title>Document</title>
+</head>
+<body>
+<div id="light">
+  <span>&#xf185;</span>
+</div>
+<ul id="couleur">
+  <li style="background-color: rgb(155, 46, 222);"></li>
+  <li style="background-color: rgb(40, 210, 51)"></li>
+  <li style="background-color: rgb(45, 88, 241);"></li>
+  <li style="background-color: rgb(204, 133, 76);"></li>
+  <li style="background-color: rgb(243, 55, 55);"></li>
+</ul>
+<div id="navbar">
+  <div id="show_hide"><i class="fas fa-arrow-up"></i></div>
+  <div id="logo">
+    <span id="nomm">Moussaif</span>
+    <span id="pren">Abdelkabir</span>
+  </div>
+</div>
+<div id="container">
+  <div id="hearth">
+    <div id="heartl"></div>
+    <div id="heartr"></div></div>
+  <div id="arml"></div>
+  <div id="armr"></div>
+  <div id="head">
+    <div id="eyel"><h3></h3></div>
+    <div id="eyer"><h3></h3></div>
+    <div id="lipsl"></div>
+    <div id="lipsr"></div>
+    <div id="mouthl"></div>
+    <div id="mouthr"></div>
+    <div id="nose"></div>
+    <div id="earl"></div>
+    <div id="earr"></div>
+  </div>
+  <form>
+    <div class="nom">
+      <input type="text" name="name" id="id" placeholder="" required>
+      <label for="nom">Identifiant</label></div>
+    <div class="prenom">
+      <input type="password" name="" id="pass" placeholder="" required>
+      <label for="prenom">Password</label></div>
+    <button type="button" id="submit">SUBMIT</button>
+  </form>
+  <div id="legl"><div class="plat"><div class="A"></div><div class="B"></div><div class="C"></div></div></div>
+  <div id="legr"><div class="plat"><div class="A"></div><div class="B"></div><div class="C"></div></div></div>
+</div>
+<script>
+  document.documentElement.style.setProperty('--theme', localStorage.getItem('theme'));
+  document.addEventListener('DOMContentLoaded', function() {
+    var light = document.getElementById('light');
+    var icon = light.querySelector('span');
+    var navbar = document.getElementById('navbar');
+    var show = document.getElementById('show_hide');
+    var couleurs = document.querySelectorAll('#couleur li');
+    document.documentElement.style.setProperty('--theme', localStorage.getItem('theme'));
+    couleurs.forEach(element=>{
+      element.addEventListener('click',function(){
+        document.documentElement.style.setProperty('--theme', element.style.backgroundColor);
+        localStorage.setItem('theme', element.style.backgroundColor);
+      });
+    });
+    let savedIcon = localStorage.getItem('icon') || '\uf185';
+    icon.textContent = savedIcon;
+    toggleLight();
+    function toggleLight() {
+      localStorage.setItem('icon', icon.textContent);
+      if (icon.textContent === '\uf185') {
+        light.style.transform = "rotate(360deg)";
+        icon.textContent = '\uf186';
+        document.documentElement.style.setProperty('--white', 'rgb(41, 40, 40)');
+        document.documentElement.style.setProperty('--black', 'white');
+      } else {
+        light.style.transform = "rotate(0deg)";
+        icon.textContent = '\uf185';
+        document.documentElement.style.setProperty('--white', 'white');
+        document.documentElement.style.setProperty('--black', 'rgb(41, 40, 40)');
+      }
+    }
+    light.addEventListener('click', toggleLight);
+    show.addEventListener('click', function() {
+      var x = 80;
+      if (navbar.style.transform == 'translateY(-' + x + 'px)') {
+        navbar.style.transform = 'translateY(0px)';
+        show.innerHTML = '<i class="fas fa-arrow-up"></i>';
+      } else {
+        navbar.style.transform = 'translateY(-' + x + 'px)';
+        show.innerHTML = '<i class="fas fa-arrow-down"></i>';
+      }
+    });
+    var form = document.querySelector("form");
+    var hearth=document.getElementById("hearth");
+    var eyes =document.querySelectorAll("h3");
+    var nom =document.getElementById("id");
+    var pass = document.getElementById("pass");
+    var submit= document.getElementById("submit");
+    var arml =document.getElementById("arml");
+    var armr = document.getElementById("armr");
+    arml.style.animation="salut 4s forwards";
+    setTimeout(function() {
+      arml.style.animation="salute 3s forwards";
+    },3000);
+    form.addEventListener("focusout",function(){
+      eyes.forEach(element => {
+        element.style.top="-15px";
+        element.style.left="2px";
+      });
+    });
+    pass.addEventListener("focusin",function(){
+      arml.style.height="80px";
+      armr.style.height="80px";
+      arml.style.top="10px";
+      armr.style.top="10px";
+      arml.style.left="40%";
+      armr.style.right="40%";
+      arml.style.transform="rotate(-135deg)";
+      armr.style.transform="rotate(135deg)";
+    });
+    pass.addEventListener("blur",function(){
+      arml.style.height="30px";
+      armr.style.height="30px";
+      arml.style.top="85px";
+      armr.style.top="85px";
+      arml.style.left="20%";
+      armr.style.right="20%";
+      arml.style.transform="rotate(0deg)";
+      armr.style.transform="rotate(0deg)";
+      eyes.forEach(element => {
+        element.style.top="-15px";
+        element.style.left="2px";
+      });
+    });
+    pass.addEventListener("input",function(){
+      arml.style.transform="rotate(-150deg)";
+      arml.style.left="35%";
+      var length=pass.value.length;
+      eyes.forEach(element => {
+        element.style.top="-5px";
+        element.style.left= 2+(length >40 ? 8 : length/5) +"px";
+      });
+    });
+    submit.addEventListener("click",function(){
+      if(nom.value.length && pass.value.length){
+        arml.style.height="80px";
+        armr.style.height="80px";
+        arml.style.top="40px";
+        armr.style.top="40px";
+        arml.style.left="38%";
+        armr.style.right="38%";
+        arml.style.transform="rotate(-100deg)";
+        armr.style.transform="rotate(100deg)";
+        setTimeout(function() {
+          hearth.style.display="block";
+          hearth.style.animation="biso 2s forwards";
+          arml.style.height="100px";
+          armr.style.height="100px";
+          arml.style.transform="rotateY(-60deg) rotateZ(20deg) rotate(-100deg) ";
+          armr.style.transform="rotateY(-60deg) rotateZ(-20deg) rotate(100deg) ";
+        },1500);
+        setTimeout(function() {
+          arml.style.height="30px";
+          armr.style.height="30px";
+          arml.style.top="85px";
+          armr.style.top="85px";
+          arml.style.left="30%";
+          armr.style.right="30%";
+          arml.style.transform="rotate(0deg)";
+          armr.style.transform="rotate(0deg)";
+          hearth.style.display="none";
+        },2500);
+        setTimeout(function() {
+          form.style.marginTop="0px";
+          form.style.height="100%";
+          form.style.zIndex="1000";
+          arml.style.top="-20px";
+          armr.style.top="-20px";
+        },3500)
+        setTimeout(function() {
+          window.location.href = "home.html";
+        },5000);
+      }
+    });
+    eyes.forEach(element => {
+      nom.addEventListener("focusin",function(){
+        element.style.top="-5px";
+        element.style.left="0px";
+      })
+      pass.addEventListener("focusin",function(){
+        element.style.top="-5px";
+        element.style.left="6px";
+      })
+    });
+
+  });
+</script>
+</body>
+</html>
